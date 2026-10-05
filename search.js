@@ -5,6 +5,10 @@ const listSearch = document.getElementById('listSearch');
 let searchTxt = '';
 let searchRes = data;
 
+const googleMapEmbedLink = placeName => {
+    return `<iframe src="https://www.google.com/maps?q=${placeName}&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`
+}
+
 // ----------------------------------------
 // Clearing all old search results, re-lists
 // new search results from upper.
@@ -37,7 +41,7 @@ const searchResList = () => {
     // that is emptyened
     // ---------------------------------------- 
     searchRes.map(search => {
-        listSearch.insertAdjacentHTML('beforeend', `<li>${search.anime}</li>`);
+        listSearch.insertAdjacentHTML('beforeend', `<li>作品名『${search.anime}』，聖地：${search.place}<br>${googleMapEmbedLink(search.place)}</li>`);
     });
 }
 
