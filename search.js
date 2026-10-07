@@ -9,7 +9,7 @@ let searchRes = data;
 // Creates embed link using place name
 // ----------------------------------------
 const googleMapEmbedLink = placeName => {
-    return `<iframe src="https://www.google.com/maps?q=${placeName}&output=embed" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`
+    return `<iframe src="https://www.google.com/maps?q=${placeName}&output=embed" width="300" height="225" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`
 };
 
 // ----------------------------------------

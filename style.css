@@ -1,9 +1,19 @@
 .anime-card {
-    border: 2px solid aqua;
-    border-radius: 10px;
-    background-color: rgb(100 255 255 / 0.1);
-    margin-bottom: 10px;
-    padding: 10px 10px 10px 10px;
+  border: 2px solid aqua;
+  border-radius: 10px;
+  background-color: rgb(100 255 255 / 0.1);
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 10px;
+}
+
+.seichi-map {
+  border: 1.5px solid palevioletred;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.search-box {
+  margin-bottom: 10px;
 }
 
 /* ----------------------------------------
@@ -15,13 +25,18 @@
   --text-color: #333333;
   --heading-color: #000000;
 }
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   color: var(--heading-color);
 }
+
 .dark-mode {
   --background-color: #333333;
   --text-color: #f5f5f5;
