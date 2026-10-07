@@ -44,7 +44,7 @@ const searchResList = () => {
     // that is emptyened
     // ---------------------------------------- 
     searchRes.map(search => {
-        listSearch.insertAdjacentHTML('beforeend', `<li class="anime-card">作品名『${search.anime}』，聖地：${search.place}<br>${googleMapEmbedLink(search.place)}</li>`);
+        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名『${search.anime}』，聖地：${search.place}<br>${googleMapEmbedLink(search.place)}</div>`);
     });
 }
 
