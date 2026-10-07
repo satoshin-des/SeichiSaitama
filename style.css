@@ -3,17 +3,23 @@
   border-radius: 10px;
   background-color: rgb(100 255 255 / 0.1);
   margin-bottom: 10px;
+  margin-right: 10px;
   padding: 10px 10px 10px 10px;
+  display: inline-block;
 }
 
 .seichi-map {
   border: 1.5px solid palevioletred;
   margin-top: 10px;
   border-radius: 8px;
+  height: 255px;
+  width: 300px;
 }
 
 .search-box {
   margin-bottom: 10px;
+  width: 300px;
+  height: 30px;
 }
 
 /* ----------------------------------------
