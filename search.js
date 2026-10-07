@@ -9,14 +9,39 @@ let searchRes = data;
 // Creates embed link using place name
 // ----------------------------------------
 const googleMapEmbedLink = placeName => {
-    return `<iframe src="https://www.google.com/maps?q=埼玉県${placeName}&output=embed" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`
+    // ----------------------------------------
+    // Encode for URL
+    // ----------------------------------------
+    const encodedPlaceName = encodeURIComponent(`埼玉県${placeName}`)
+    return `<iframe src="https://www.google.com/maps?q=埼${encodedPlaceName}&output=embed" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`
+};
+
+async function getWikipediaSummary(title) {
+    // ----------------------------------------
+    // Encode for URL
+    // ----------------------------------------
+    const encodedTitle = encodeURIComponent(title);
+    const url = `https://ja.wikipedia.org/api/rest_v1/page/summary/${encodedTitle}`;
+    const failedRes = `<img src="https://tv2nd.anime-eupho.com/img/story/st03/icon/euph_st03_03.png" width="90px" />`
+
+    try {
+        const res = await fetch(url);
+        if (!res.ok) {
+            return failedRes;
+        }
+        const wikiData = await res.json();
+        console.log(wikiData.extract);
+        return wikiData.extract;
+    } catch {
+        return failedRes;
+    }
 };
 
 // ----------------------------------------
 // Clearing all old search results, re-lists
 // new search results from upper.
 // ----------------------------------------
-const searchResList = () => {
+const searchResList = async () => {
     // ----------------------------------------
     // Checks that there exists old child elements
     // in the HTML-element `listSearch.`
@@ -43,9 +68,16 @@ const searchResList = () => {
     // Inserts new list indices into listSearch
     // that is emptyened
     // ---------------------------------------- 
+    for (const search of searchRes) {
+        const summaryStr = await getWikipediaSummary(search.anime);
+        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名：<div class="balloonoya">『${search.anime}』<span class="balloon">${summaryStr}</span></div><br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
+    }
+
+    /*
     searchRes.map(search => {
-        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名：『${search.anime}』<br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
+        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名：<div class="balloonoya">『${search.anime}』<span class="balloon">${getWikipediaSummary(search.anime)}</span></div><br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
     });
+    */
 };
 
 // ----------------------------------------
