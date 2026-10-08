@@ -74,8 +74,8 @@ const searchResList = async () => {
         // informations of works
         // ----------------------------------------
         let works = ''
-        for (const work of search.anime) {
-            const summaryStr = await getWikipediaSummary(search.anime);
+        for (const work of search.work) {
+            const summaryStr = await getWikipediaSummary(search.work);
             works += `作品名：『<div class="balloonoya">${work}<span class="balloon-bottom">${summaryStr}</span></div>』<br />`;
         }
 
@@ -84,7 +84,7 @@ const searchResList = async () => {
         // to HTML.
         // ----------------------------------------
         listSearch.insertAdjacentHTML('beforeend', `
-            <div class="anime-card">
+            <div class="work-card">
                 聖地：${search.place}<br />
                 ${works}
                 ${googleMapEmbedLink(search.place)}
@@ -94,7 +94,7 @@ const searchResList = async () => {
 
     /*
     searchRes.map(search => {
-        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名：<div class="balloonoya">『${search.anime}』<span class="balloon">${getWikipediaSummary(search.anime)}</span></div><br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
+        listSearch.insertAdjacentHTML('beforeend', `<div class="work-card">作品名：<div class="balloonoya">『${search.work}』<span class="balloon">${getWikipediaSummary(search.work)}</span></div><br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
     });
     */
 };
