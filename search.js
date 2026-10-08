@@ -1,9 +1,16 @@
 import data from "./data.json" with { type: 'json' };
 
+const ITEMS_PER_PAGE = 12;
+
 const txtSearch = document.getElementById('txtSearch');
 const listSearch = document.getElementById('listSearch');
+const toPrev = document.getElementById('toPrev');
+const toNext = document.getElementById('toNext');
+const pageInfo = document.getElementById('pageInfo');
 let searchTxt = '';
 let searchRes = data;
+
+let currPage = 1;
 
 // ----------------------------------------
 // Creates embed link using place name
@@ -64,10 +71,29 @@ const searchResList = async () => {
     }
 
     // ----------------------------------------
+    // Computes the number of total pages
+    // ----------------------------------------
+    const totalPages = Math.ceil(searchRes.length / ITEMS_PER_PAGE);
+    if (totalPages === 0) {
+        totalPages = 1;
+    }
+
+    if (currPage > totalPages) {
+        currPage = totalPages;
+    }
+
+    // ----------------------------------------
+    // Samples the data to display on the current
+    // pages using slice
+    // ----------------------------------------
+    const startIdx = (currPage - 1) * ITEMS_PER_PAGE;
+    const pagesItems = searchRes.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+    // ----------------------------------------
     // Inserts new list indices into listSearch
     // that is emptyened
     // ---------------------------------------- 
-    for (const search of searchRes) {
+    for (const search of pagesItems) {
         // ----------------------------------------
         // Gets summary of Wikipedia on the works
         // and to display on the page, joints all
@@ -100,7 +126,36 @@ const searchResList = async () => {
         listSearch.insertAdjacentHTML('beforeend', `<div class="work-card">作品名：<div class="balloonoya">『${search.work}』<span class="balloon">${getWikipediaSummary(search.work)}</span></div><br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
     });
     */
+
+    pageInfo.textContent = `${currPage}/${totalPages}`;
 };
+
+// ----------------------------------------
+// The click event to previous page
+// ----------------------------------------
+toPrev.addEventListener('click', () => {
+    if (currPage > 1) {
+        --currPage;
+        searchResList();
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+});
+
+// ----------------------------------------
+// The click event to next page
+// ----------------------------------------
+toPrev.addEventListener('click', () => {
+    const totalPages = Math.ceil(searchRes.length / ITEMS_PER_PAGE);
+    if (totalPages === 0) {
+        totalPages = 1;
+    }
+
+    if (currPage < totalPages) {
+        ++currPage;
+        searchResList();
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+});
 
 // ----------------------------------------
 // If users input or delete characters from
