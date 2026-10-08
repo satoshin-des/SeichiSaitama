@@ -23,7 +23,7 @@ async function getWikipediaSummary(title) {
     const encodedTitle = encodeURIComponent(title);
     const url = `https://ja.wikipedia.org/api/rest_v1/page/summary/${encodedTitle}`;
     const failedRes = `読み込みエラーまたは記事が存在しません<br /><img src="https://tv2nd.anime-eupho.com/img/story/st03/icon/euph_st03_03.png" width="90px" />`;
-
+    console.log(url);
     try {
         const res = await fetch(url);
         if (!res.ok) {
@@ -75,7 +75,7 @@ const searchResList = async () => {
         // ----------------------------------------
         let works = ''
         for (const work of search.work) {
-            const summaryStr = await getWikipediaSummary(search.work);
+            const summaryStr = await getWikipediaSummary(work);
             works += `作品名：『<div class="balloonoya">${work}<span class="balloon-bottom">${summaryStr}</span></div>』<br />`;
         }
 
