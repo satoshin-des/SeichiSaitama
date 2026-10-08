@@ -55,6 +55,7 @@ h3 {
 ---------------------------------------- */
 .balloonoya {
   position   : relative;                /* 指定した分だけ相対的に移動 */
+  display: inline-block;
 }
 .balloonoya:hover .balloon {
   display: inline;                /* インライン要素として表示 */
