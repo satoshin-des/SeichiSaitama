@@ -144,7 +144,7 @@ toPrev.addEventListener('click', () => {
 // ----------------------------------------
 // The click event to next page
 // ----------------------------------------
-toPrev.addEventListener('click', () => {
+toNext.addEventListener('click', () => {
     const totalPages = Math.ceil(searchRes.length / ITEMS_PER_PAGE);
     if (totalPages === 0) {
         totalPages = 1;
