@@ -69,7 +69,7 @@ const searchResList = async () => {
     // ---------------------------------------- 
     for (const search of searchRes) {
         const summaryStr = await getWikipediaSummary(search.anime);
-        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名：『<div class="balloonoya">${search.anime}<span class="balloon">${summaryStr}</span></div>』<br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
+        listSearch.insertAdjacentHTML('beforeend', `<div class="anime-card">作品名：『<div class="balloonoya">${search.anime}<span class="balloon-bottom">${summaryStr}</span></div>』<br />聖地：${search.place}<br />${googleMapEmbedLink(search.place)}</div>`);
     }
 
     /*
