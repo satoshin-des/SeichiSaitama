@@ -12,8 +12,8 @@ const googleMapEmbedLink = placeName => {
     // ----------------------------------------
     // Encode for URL
     // ----------------------------------------
-    const encodedPlaceName = encodeURIComponent(`埼玉県${placeName}`)
-    return `<iframe src="https://www.google.com/maps?q=埼${encodedPlaceName}&output=embed" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`
+    const encodedPlaceName = encodeURIComponent(`埼玉県${placeName}`);
+    return `<iframe src="https://www.google.com/maps?q=埼${encodedPlaceName}&output=embed" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`;
 };
 
 async function getWikipediaSummary(title) {
@@ -22,7 +22,7 @@ async function getWikipediaSummary(title) {
     // ----------------------------------------
     const encodedTitle = encodeURIComponent(title);
     const url = `https://ja.wikipedia.org/api/rest_v1/page/summary/${encodedTitle}`;
-    const failedRes = `読み込みエラーまたは記事が存在しません<br /><img src="https://tv2nd.anime-eupho.com/img/story/st03/icon/euph_st03_03.png" width="90px" />`
+    const failedRes = `読み込みエラーまたは記事が存在しません<br /><img src="https://tv2nd.anime-eupho.com/img/story/st03/icon/euph_st03_03.png" width="90px" />`;
 
     try {
         const res = await fetch(url);
