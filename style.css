@@ -22,6 +22,10 @@
   height: 30px;
 }
 
+summary {
+  cursor: pointer;
+}
+
 /* ----------------------------------------
  Styles for dark mode
  Based on `https://coddy.tech/learn/ja/html/practical_frontend/darklight_mode_basics`
@@ -38,7 +42,6 @@ body {
 h1, h2, h3 {
   color: var(--heading-color);
 }
-
 .dark-mode {
   --background-color: #333333;
   --text-color: #f5f5f5;
@@ -53,6 +56,7 @@ h1, h2, h3 {
 .balloonoya {
   position: relative;                /* 指定した分だけ相対的に移動 */
   display: inline-block;
+  cursor: pointer;
 }
 .balloonoya:hover .balloon-bottom {
   display: inline;                /* インライン要素として表示 */
@@ -68,6 +72,7 @@ h1, h2, h3 {
   margin-top : 12px;                    /* 表示位置 */
   font-size: 0.8rem;                       /* 文字サイズ */
   color: black;
+  cursor: default;
 }
 .balloon-bottom:after {
   border-bottom: 12px solid #ffffff; /* 吹き出し口の高さ・色 */
@@ -77,4 +82,5 @@ h1, h2, h3 {
   left: 1vw;                              /* 吹き出し口の横位置 */
   content: "";                       /* コンテンツの挿入 */
   position: absolute;                /* 親要素を基準 */
+  cursor: default;
 }

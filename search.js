@@ -30,7 +30,7 @@ async function getWikipediaSummary(title) {
             return failedRes;
         }
         const wikiData = await res.json();
-        return `<b>Wikipediaからの引用</b><br />${wikiData.extract}`;
+        return `<b><a href="https://ja.wikipedia.org/wiki/${encodedTitle}">Wikipedia</a>からの引用</b><br />${wikiData.extract}`;
     } catch {
         return failedRes;
     }
@@ -76,7 +76,7 @@ const searchResList = async () => {
         let works = ''
         for (const work of search.work) {
             const summaryStr = await getWikipediaSummary(work);
-            works += `作品名：『<div class="balloonoya">${work}<span class="balloon-bottom">${summaryStr}</span></div>』<br />`;
+            works += `『<div class="balloonoya">${work}<span class="balloon-bottom">${summaryStr}</span></div>』<br />`;
         }
 
         // ----------------------------------------
@@ -86,7 +86,10 @@ const searchResList = async () => {
         listSearch.insertAdjacentHTML('beforeend', `
             <div class="work-card">
                 聖地：${search.place}<br />
-                ${works}
+                <details>
+                    <summary>作品名</summary>
+                    ${works}
+                </details>
                 ${googleMapEmbedLink(search.place)}
             </div>
         `);
