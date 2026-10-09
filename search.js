@@ -90,20 +90,22 @@ const searchResList = async () => {
     const startIdx = (currPage - 1) * ITEMS_PER_PAGE;
     const pagesItems = searchRes.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
+    const numberOfPagesItems = pagesItems.length;
+    let i, j;
     // ----------------------------------------
     // Inserts new list indices into listSearch
     // that is emptyened
     // ---------------------------------------- 
-    for (const search of pagesItems) {
+    for (i = 0; i < numberOfPagesItems; ++i) {
         // ----------------------------------------
         // Gets summary of Wikipedia on the works
         // and to display on the page, joints all
         // informations of works
         // ----------------------------------------
         let works = ''
-        for (const work of search.work) {
-            const summaryStr = await getWikipediaSummary(work);
-            works += `『<div class="balloonoya">${work}<span class="balloon-bottom">${summaryStr}</span></div>』<br />`;
+        for (j = 0; j < pagesItems[i].work.length; ++j) {
+            const summaryStr = await getWikipediaSummary(pagesItems[i].work[j]);
+            works += `『<div class="balloonoya">${pagesItems[i].work[j]}<span class="balloon-bottom">${summaryStr}</span></div>』<br />`;
         }
 
         // ----------------------------------------
@@ -112,12 +114,12 @@ const searchResList = async () => {
         // ----------------------------------------
         listSearch.insertAdjacentHTML('beforeend', `
             <div class="work-card">
-                聖地：${search.place}<br />
+                聖地：${pagesItems[i].place}<br />
                 <details>
                     <summary>作品名</summary>
                     ${works}
                 </details>
-                ${googleMapEmbedLink(search.place)}
+                ${googleMapEmbedLink(pagesItems[i].place)}
             </div>
         `);
     }
