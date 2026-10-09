@@ -1,3 +1,6 @@
+/* ----------------------------------------
+ Style for card of seichis
+---------------------------------------- */
 .work-card {
   border: 2px solid aqua;
   border-radius: 10px;
@@ -8,6 +11,9 @@
   display: inline-block;
 }
 
+/* ----------------------------------------
+ Style for embedded google map for seichi
+---------------------------------------- */
 .seichi-map {
   border: 1.5px solid palevioletred;
   margin-top: 10px;
@@ -16,10 +22,17 @@
   width: 300px;
 }
 
+/* ----------------------------------------
+ Style for search box i.e. input
+---------------------------------------- */
 .search-box {
   margin-bottom: 10px;
   width: 300px;
   height: 30px;
+}
+
+.footer {
+  text-align: center;
 }
 
 summary {
