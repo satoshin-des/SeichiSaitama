@@ -77,15 +77,17 @@ h1, h2, h3 {
 .balloon-bottom {
   position: absolute;                /* 親要素を基準 */
   display: none;                        /* 要素を非表示 */
-  padding: 2px;                         /* テキストの前後の余白 */
+  padding: 5px;                         /* テキストの前後の余白 */
   background-color: #ffffff;       /* 背景色（透明度） */
   width:180px;                          /* 吹き出し全体の幅 */
   left : 1vw;                           /* 表示位置 */
-  top : 100%;                           /* 表示位置 */
+  top : 3vh;                           /* 表示位置 */
   margin-top : 12px;                    /* 表示位置 */
   font-size: 0.8rem;                       /* 文字サイズ */
   color: black;
   cursor: default;
+  border: 1pt solid black;
+  border-radius: 5pt;
 }
 .balloon-bottom:after {
   border-bottom: 12px solid #ffffff; /* 吹き出し口の高さ・色 */
