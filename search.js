@@ -46,6 +46,7 @@ async function getWikipediaSummary(title) {
 // ----------------------------------------
 // Clearing all old search results, re-lists
 // new search results from upper.
+// Based on `https://weblog.walk-life.me/search_json_list/`
 // ----------------------------------------
 const searchResList = async () => {
     // ----------------------------------------
