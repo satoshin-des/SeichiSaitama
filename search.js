@@ -20,7 +20,7 @@ const googleMapEmbedLink = placeName => {
     // Encode for URL
     // ----------------------------------------
     const encodedPlaceName = encodeURIComponent(`埼玉県${placeName}`);
-    return `<iframe src="https://www.google.com/maps?q=埼${encodedPlaceName}&output=embed" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`;
+    return `<iframe src="https://www.google.com/maps?q=${encodedPlaceName}&output=embed" class="seichi-map" allowfullscreen="" loading="lazy"></iframe>`;
 };
 
 async function getWikipediaSummary(title) {
