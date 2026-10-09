@@ -56,10 +56,6 @@ const searchResList = async () => {
         currPage = totalPages;
     }
 
-    // ----------------------------------------
-    // Samples the data to display on the current
-    // pages using slice
-    // ----------------------------------------
     const startIdx = (currPage - 1) * ITEMS_PER_PAGE;
     const pagesItems = searchRes.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
