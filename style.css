@@ -1,6 +1,4 @@
-/* ----------------------------------------
- Style for card of seichis
----------------------------------------- */
+/* Style for card of seichis */
 .work-card {
   border: 2px solid aqua;
   border-radius: 10px;
@@ -11,9 +9,7 @@
   display: inline-block;
 }
 
-/* ----------------------------------------
- Style for embedded google map for seichi
----------------------------------------- */
+/* Style for embedded google map for seichi */
 .seichi-map {
   border: 1.5px solid palevioletred;
   margin-top: 10px;
@@ -22,13 +18,16 @@
   width: 300px;
 }
 
-/* ----------------------------------------
- Style for search box i.e. input
----------------------------------------- */
+/* Style for search box i.e. input */
 .search-box {
   margin-bottom: 10px;
   width: 300px;
   height: 30px;
+}
+
+/* Style for seichi counter */
+.seichiCounter {
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -39,10 +38,8 @@ summary {
   cursor: pointer;
 }
 
-/* ----------------------------------------
- Styles for dark mode
- Based on `https://coddy.tech/learn/ja/html/practical_frontend/darklight_mode_basics`
----------------------------------------- */
+/* Styles for dark mode */
+/* Based on `https://coddy.tech/learn/ja/html/practical_frontend/darklight_mode_basics` */
 :root {
   --background-color: #ffffff;
   --text-color: #333333;
@@ -61,11 +58,8 @@ h1, h2, h3 {
   --heading-color: #ffffff;
 }
 
-/* ----------------------------------------
- Styles for balloon hover text
- Copied from `https://webparts.cman.jp/balloon/over/`
- And I modified it.
----------------------------------------- */
+/* Styles for balloon hover text */
+/* Copied from `https://webparts.cman.jp/balloon/over/` And I modified it. */
 .balloonoya {
   position: relative;                /* 指定した分だけ相対的に移動 */
   display: inline-block;
