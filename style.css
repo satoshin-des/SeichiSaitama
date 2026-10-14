@@ -82,6 +82,8 @@ h1, h2, h3 {
   cursor: default;
   border: 1pt solid black;
   border-radius: 5pt;
+  opacity: 1;
+  z-index: 1;
 }
 .balloon-bottom:after {
   border-bottom: 12px solid #ffffff; /* 吹き出し口の高さ・色 */
