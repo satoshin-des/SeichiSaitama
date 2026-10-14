@@ -126,5 +126,7 @@ txtSearch.addEventListener('input', function (e) {
     searchResList();
 });
 
+console.log("ジョジョで一番好きなのはリゾットネェロです(*´ω`*)");
+
 // When users do nothing, print lists on screen
 searchResList();
