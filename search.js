@@ -74,8 +74,8 @@ const searchResList = async () => {
         listSearch.insertAdjacentHTML('beforeend', `
             <div class="work-card">
                 聖地：${pagesItems[i].place}<br />
-                <details>
-                    <summary>作品名</summary>
+                <details class="anime-details">
+                    <summary class="anime-summary">作品名</summary>
                     ${works}
                 </details>
                 ${googleMapEmbedLink(pagesItems[i].place)}
